@@ -13,9 +13,25 @@ public class MainActivity extends AppCompatActivity {
         ActivityMainBinding binding =
                 DataBindingUtil.setContentView(this, R.layout.activity_main);
 
-        binding.tvOne.setText("Hello One");
-        binding.tvTwo.setText("Hello Two");
-        binding.tvThree.setText("Hello Three");
+        binding.setAStudent(new Student("Shahrian Anwar", 28));
 
+    }
+
+    public class Student {
+        private String name;
+        private int age;
+
+        public Student(String name, int age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public int getAge() {
+            return age;
+        }
     }
 }
