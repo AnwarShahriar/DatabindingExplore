@@ -6,6 +6,9 @@
         <variable
             name="aStudent"
             type="me.anwarshahriar.databindingexplore.MainActivity.Student"/>
+        <variable
+            name="handler"
+            type="me.anwarshahriar.databindingexplore.MainActivity.EventHandler"/>
     </data>
 
     <LinearLayout
@@ -28,6 +31,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{String.valueOf(aStudent.age)}" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Click"
+            android:onClick="@{() -> handler.handleClick(aStudent.name)}"/>
 
     </LinearLayout>
 </layout>
