@@ -3,12 +3,24 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <import type="java.util.List"/>
+        <import type="java.util.Map"/>
+        <import type="me.anwarshahriar.databindingexplore.MainActivity.Student"/>
         <variable
             name="aStudent"
             type="me.anwarshahriar.databindingexplore.MainActivity.Student"/>
         <variable
             name="handler"
             type="me.anwarshahriar.databindingexplore.MainActivity.EventHandler"/>
+        <variable
+            name="students"
+            type="List&lt;Student&gt;"/>
+        <variable
+            name="nameVsAge"
+            type="Map&lt;String,Integer&gt;"/>
+        <variable
+            name="showStar"
+            type="boolean"/>
     </data>
 
     <LinearLayout
@@ -25,12 +37,22 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{aStudent.name}" />
+            android:text="@{students[0].name}" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{String.valueOf(aStudent.age)}" />
+            android:text="@{String.valueOf(nameVsAge[students[0].name])}" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{@string/student_info(students[0].name, students[0].age)}"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@{showStar ? @drawable/ic_star_black_48dp : @drawable/ic_star_border_black_48dp}"/>
 
         <Button
             android:layout_width="match_parent"
