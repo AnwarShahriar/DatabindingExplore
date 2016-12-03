@@ -1,4 +1,3 @@
 <resources>
     <string name="app_name">DatabindingExplore</string>
-    <string name="student_info">%1$s is %2$d years old</string>
 </resources>
