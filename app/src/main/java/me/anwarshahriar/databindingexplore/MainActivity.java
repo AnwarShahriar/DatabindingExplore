@@ -2,8 +2,11 @@ package me.anwarshahriar.databindingexplore;
 
 import android.databinding.BindingAdapter;
 import android.databinding.DataBindingUtil;
+import android.databinding.ObservableField;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -18,24 +21,24 @@ public class MainActivity extends AppCompatActivity {
         ActivityMainBinding binding =
                 DataBindingUtil.setContentView(this, R.layout.activity_main);
 
-        Student aStudent = new Student("Shahriar Anwar", 999);
+        final Student aStudent = new Student("Shahriar Anwar", 999);
         aStudent.setImageUrl("https://lh3.googleusercontent.com/ET01Ksz0wvjTIZD-3pWezJNQvYABuhKY8XiujK4zFJHNBMPhBv7hXxrWSLLfyhPg0oLy3OfL=w1366-h768-rw-no");
 
         binding.setAStudent(aStudent);
     }
 
     public class Student {
-        private String name;
+        public final ObservableField<String> name = new ObservableField<>();
         private int age;
         private String imageUrl;
 
         public Student(String name, int age) {
-            this.name = name;
+            this.name.set(name);
             this.age = age;
         }
 
-        public String getName() {
-            return name;
+        public void setName(String name) {
+            this.name.set(name);
         }
 
         public int getAge() {

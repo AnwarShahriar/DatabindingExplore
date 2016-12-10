@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">DatabindingExplore</string>
+    <string name="hint_name">Name</string>
 </resources>
