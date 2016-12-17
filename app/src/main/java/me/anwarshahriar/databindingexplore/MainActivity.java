@@ -1,8 +1,12 @@
 package me.anwarshahriar.databindingexplore;
 
+import android.databinding.BaseObservable;
+import android.databinding.Bindable;
 import android.databinding.BindingAdapter;
 import android.databinding.DataBindingUtil;
+import android.databinding.Observable;
 import android.databinding.ObservableField;
+import android.databinding.PropertyChangeRegistry;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -27,18 +31,25 @@ public class MainActivity extends AppCompatActivity {
         binding.setAStudent(aStudent);
     }
 
-    public class Student {
-        public final ObservableField<String> name = new ObservableField<>();
+    public class Student implements Observable {
+        private PropertyChangeRegistry registry = new PropertyChangeRegistry();
+        private String name;
         private int age;
         private String imageUrl;
 
         public Student(String name, int age) {
-            this.name.set(name);
+            this.name = name;
             this.age = age;
         }
 
         public void setName(String name) {
-            this.name.set(name);
+            this.name = name;
+            registry.notifyChange(this, BR.name);
+        }
+
+        @Bindable
+        public String getName() {
+            return name;
         }
 
         public int getAge() {
@@ -51,6 +62,16 @@ public class MainActivity extends AppCompatActivity {
 
         public void setImageUrl(String imageUrl) {
             this.imageUrl = imageUrl;
+        }
+
+        @Override
+        public void addOnPropertyChangedCallback(OnPropertyChangedCallback onPropertyChangedCallback) {
+            registry.add(onPropertyChangedCallback);
+        }
+
+        @Override
+        public void removeOnPropertyChangedCallback(OnPropertyChangedCallback onPropertyChangedCallback) {
+            registry.remove(onPropertyChangedCallback);
         }
     }
 
