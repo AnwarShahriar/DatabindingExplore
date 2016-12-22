@@ -1,41 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <variable
-            name="aStudent"
-            type="me.anwarshahriar.databindingexplore.MainActivity.Student"/>
     </data>
 
     <LinearLayout
         android:id="@+id/activity_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:paddingBottom="@dimen/activity_vertical_margin"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin"
-        android:gravity="center_horizontal"
-        tools:context="me.anwarshahriar.databindingexplore.MainActivity">
-
-        <ImageView
-            android:layout_width="92dp"
-            android:layout_height="92dp"
-            android:background="@android:color/darker_gray"
-            app:imageUrl="@{aStudent.imageUrl}"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{aStudent.name}" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{String.valueOf(aStudent.age)}" />
+        android:orientation="vertical">
 
     </LinearLayout>
 </layout>
