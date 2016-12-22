@@ -25,5 +25,17 @@
             android:layout_height="wrap_content"
             android:text="@{String.valueOf(model.color)}"/>
 
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_name"
+            android:enabled="@{enableSwitch.checked}"
+            android:text="@={aStudent.name}"/>
+
+        <android.support.v7.widget.SwitchCompat
+            android:id="@+id/enableSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
     </LinearLayout>
 </layout>
