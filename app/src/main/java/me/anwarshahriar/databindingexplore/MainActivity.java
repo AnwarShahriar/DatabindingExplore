@@ -3,6 +3,8 @@ package me.anwarshahriar.databindingexplore;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+
 import java.util.ArrayList;
 import java.util.List;
 import me.anwarshahriar.databindingexplore.databinding.ActivityMainBinding;
@@ -16,6 +18,9 @@ public class MainActivity extends AppCompatActivity {
                 DataBindingUtil.setContentView(this, R.layout.activity_main);
 
         List<Movie> movieList = getMovies();
+        MovieAdapter adapter = new MovieAdapter(movieList);
+        binding.rvMovies.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        binding.rvMovies.setAdapter(adapter);
     }
 
 
