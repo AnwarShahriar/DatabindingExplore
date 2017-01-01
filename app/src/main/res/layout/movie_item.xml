@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="movie"
+            type="me.anwarshahriar.databindingexplore.Movie"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/ivPoster"
+            android:layout_width="74dp"
+            android:layout_height="100dp"
+            tools:background="@android:color/darker_gray"
+            app:imageUrl="@{movie.moviePoster}"
+            app:placeHolder="@{ @drawable/ic_terrain_black_48dp }"/>
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@+id/ivPoster"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="@{movie.title}"
+            tools:text="Pirates of the Carribean: Dead Men Tell No Tales" />
+
+        <TextView
+            android:id="@+id/tvYear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/tvTitle"
+            android:layout_below="@+id/tvTitle"
+            android:layout_marginTop="8dp"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="16sp"
+            android:textStyle="bold|italic"
+            android:text="@{String.valueOf(movie.releaseYear)}"
+            tools:text="2017" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/tvTitle"
+            android:layout_below="@+id/tvYear"
+            android:layout_marginTop="8dp"
+            android:textColor="@android:color/holo_blue_light"
+            android:textSize="16sp"
+            android:text="@{movie.director}"
+            tools:text="Joachim Rønning, Espen Sandberg" />
+    </RelativeLayout>
+</layout>
