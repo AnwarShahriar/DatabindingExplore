@@ -2,10 +2,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
         <variable
             name="student"
-            type="me.anwarshahriar.databindingexplore.Student" />
+            type="me.anwarshahriar.databindingexplore.Student"/>
     </data>
 
     <LinearLayout
@@ -20,5 +19,6 @@
 
         <include layout="@layout/student_course"
             app:student="@{student}"/>
+
     </LinearLayout>
 </layout>

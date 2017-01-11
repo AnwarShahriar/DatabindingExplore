@@ -13,10 +13,10 @@ public class MainActivity extends AppCompatActivity {
         final ActivityMainBinding binding =
                 DataBindingUtil.setContentView(this, R.layout.activity_main);
 
-        Student aStudent = new Student("Md. Shahriar Anwar", 99);
-        aStudent.addCourse("CS-50");
-        aStudent.addCourse("CS-101");
+        Student student = new Student("Md. Shahriar Anwar", 100);
+        student.addCourse("CS-50");
+        student.addCourse("CS-101");
 
-        binding.setStudent(aStudent);
+        binding.setStudent(student);
     }
 }
