@@ -5,20 +5,33 @@
         <variable
             name="student"
             type="me.anwarshahriar.databindingexplore.Student"/>
+        <variable
+            name="isDay"
+            type="boolean"/>
     </data>
 
     <LinearLayout
         android:id="@+id/activity_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="16dp"
-        android:orientation="vertical">
+        android:padding="16dp"
+        android:orientation="vertical"
+        android:background="@{isDay ? @color/dayBg : @color/nightBg}">
 
         <include layout="@layout/student_sum"
-            app:student="@{student}"/>
+            app:student="@{student}"
+            app:isDay="@{isDay}"/>
 
         <include layout="@layout/student_course"
-            app:student="@{student}"/>
+            app:student="@{student}"
+            app:isDay="@{isDay}"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@{isDay ? @color/textColorDay : @color/textColorNight}"
+            android:text="@{isDay ? `Switch to night mode` : `Switch to day mode`}"
+            android:onClick="toggleTheme"/>
 
     </LinearLayout>
 </layout>

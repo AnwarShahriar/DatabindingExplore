@@ -5,6 +5,9 @@
         <variable
             name="student"
             type="me.anwarshahriar.databindingexplore.Student"/>
+        <variable
+            name="isDay"
+            type="boolean"/>
     </data>
     <LinearLayout
         android:orientation="vertical"
@@ -14,12 +17,14 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{student.name}"/>
+            android:text="@{student.name}"
+            android:textColor="@{isDay ? @color/textColorDay : @color/textColorNight}"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{`` + student.age}"/>
+            android:text="@{`` + student.age}"
+            android:textColor="@{isDay ? @color/textColorDay : @color/textColorNight}"/>
 
     </LinearLayout>
 </layout>
